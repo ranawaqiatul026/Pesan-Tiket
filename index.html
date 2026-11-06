@@ -1,1 +1,279 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pemesanan Tiket Konser</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #100d2c, #30206b, #741b82);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    color: #43247e;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #777;
+    font-size: 14px;
+}
+
+.line {
+    height: 4px;
+    background: linear-gradient(90deg, #6938d4, #ec4899);
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group > label {
+    display: block;
+    font-weight: 600;
+    color: #30234c;
+    margin-bottom: 9px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8d4e8;
+    border-radius: 9px;
+    background: #faf9ff;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    border-color: #7545d6;
+    box-shadow: 0 0 0 3px rgba(117,69,214,0.12);
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+
+.input-row > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.input-row > input {
+    flex: 1;
+    min-width: 0;
+}
+
+small {
+    display: block;
+    color: #888;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.radio-group {
+    background: #f7f4ff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #444;
+    cursor: pointer;
+}
+
+.radio-group label:last-child {
+    margin-bottom: 0;
+}
+
+.radio-group input {
+    width: auto;
+    accent-color: #7545d6;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6335c9, #d43b9b);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(99,53,201,0.3);
+}
+
+.footer {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 22px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 23px 18px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .input-row {
+        gap: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="icon">🎤</div>
+        <h1>Tiket Konser Terhebat!</h1>
+        <p>Dapatkan tiket hari ini sebelum terlambat!</p>
+    </div>
+
+    <div class="line"></div>
+
+    <form id="ticketForm">
+
+        <div class="form-group">
+            <label>Nama</label>
+            <div class="input-row">
+                <div>
+                    <input type="text" placeholder="Nama Depan" required>
+                    <small>Nama Depan</small>
+                </div>
+                <div>
+                    <input type="text" placeholder="Nama Belakang" required>
+                    <small>Nama Belakang</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" placeholder="contoh: nama@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nomor Telepon</label>
+            <div class="input-row">
+                <input type="text" placeholder="+62" required>
+                <input type="tel" placeholder="Nomor Telepon" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Pilihan Tempat Duduk</label>
+
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="seat" value="Panggung Depan" required>
+                    Panggung Depan
+                </label>
+
+                <label>
+                    <input type="radio" name="seat" value="Tengah">
+                    Tengah
+                </label>
+
+                <label>
+                    <input type="radio" name="seat" value="Balkon">
+                    Balkon
+                </label>
+
+                <label>
+                    <input type="radio" name="seat" value="Lainnya">
+                    Lainnya
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Jumlah Tiket</label>
+            <input type="number" min="1" max="10"
+            placeholder="Masukkan jumlah tiket" required>
+        </div>
+
+        <div class="form-group">
+            <label>Ada Pertanyaan?</label>
+            <textarea placeholder="Ketik di sini..."></textarea>
+        </div>
+
+        <button type="submit">🎫 Dapatkan Tiket!</button>
+
+    </form>
+
+    <div class="footer">
+        © 2026 Pemesanan Tiket Konser
+    </div>
+
+</div>
+
+<script>
+document.getElementById("ticketForm")
+.addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Terima kasih! Pemesanan berhasil diisi.");
+});
+</script>
+
+</body>
+</html>
+
